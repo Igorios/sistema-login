@@ -22,6 +22,7 @@
             </div>
             <?php
                 endif;
+                // Destruindo uma sessão 
                 unset($_SESSION['nao_autenticado']);
             ?>
             <div class="mb-3">
