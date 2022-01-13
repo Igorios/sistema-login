@@ -18,11 +18,11 @@
 
     if ($row == 1) {
         $_SESSION['usuario'] = $usuario; // Criando sessão
-        header('Location: site.php');
+        header('Location: site');
         exit();
     } else {
         $_SESSION['nao_autenticado'] = true;
-        header('Location: index.php');
+        header('Location: index');
         exit();
     }
 ?>
