@@ -1,40 +1,29 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>|| Tela de Login ||</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastrar</title>
 </head>
-<body style="background-color: #f1f1f1;">
-    <h1 class="text-center mt-5">Tela de Login</h1>
-    <form action="login.php" method="POST">
-        <div class="container mt-3">
-            <?php
-                if(isset($_SESSION['nao_autenticado'])):
-            ?>
-            <div class="alert alert-danger" role="alert">
-                ERRO! Usuario ou Senha inválidos!!
-            </div>
-            <?php
-                endif;
-                // Destruindo uma sessão 
-                unset($_SESSION['nao_autenticado']);
-            ?>
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome:</label>
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite seu nome">
-            </div>
-            <div class="mb-3">
-                <label for="senha" class="form-label">Senha:</label>
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Entar</button>
-        </div>
-    </form>
+<body>
+    <h1>Sistema de login</h1>
+    <section class="container">
+        <h2>Entrar</h2>
+    
+        <form method="POST">
+            <input type="email" name="email" id="email" placeholder="Usuário">
+            <input type="password" name="senha" id="senha" placeholder="Senha">
+            <input class="btn-submit" type="submit" value="Entrar">
+            <a href="cadastrar.php">Ainda não é inscrito? <strong>Cadastre-se</strong> </a>
+        </form>
+
+    </section>
+
+    <?php
+
+    ?>
+    
 </body>
 </html>
