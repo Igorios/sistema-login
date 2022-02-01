@@ -30,11 +30,11 @@
                 return false; # ja cadastrado
 
             } else {
-                $sql-> $pdo->prepare("INSERT INTO usuario (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
+                $sql = $pdo->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e, :s)");
                 $sql->bindValue(":n", $nome);
                 $sql->bindValue(":t", $telefone);
                 $sql->bindValue(":e", $email);
-                $sql->bindValue(":s", $senha);
+                $sql->bindValue(":s", md5($senha));
                 $sql->execute();
                 return true; # criou cadastro
 
@@ -47,7 +47,7 @@
             $sql = $pdo->prepare("SELECT id_usuario FROM usuario WHERE email = :e AND senha = :s");
             
             $sql->bindValue(":e", $email);
-            $sql->bindValue(":s", $senha);
+            $sql->bindValue(":s", md5($senha));
             $sql->execute();
 
             if ($sql->rowCount() > 0) {
@@ -55,7 +55,7 @@
                 $dado = $sql->fetch();
                 session_start();
                 $_SESSION["id_usuario"] = $dado["id_usuario"];
-                return true;
+                return true; # ok
 
             } else {
                 return false;
