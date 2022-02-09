@@ -44,7 +44,7 @@
         public function logar($email, $senha) {
             global $pdo;
             # Verificando se ja esta cadastrado
-            $sql = $pdo->prepare("SELECT id_usuario FROM usuario WHERE email = :e AND senha = :s");
+            $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e AND senha = :s");
             
             $sql->bindValue(":e", $email);
             $sql->bindValue(":s", md5($senha));

@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastrar.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/cadastrar.css">
+    <title>Cadastro</title>
 </head>
 <body>
     <section class="container">
@@ -45,21 +45,52 @@
                     if ($senha == $confSenha) {
 
                         if ($u->cadastrar($nome, $telefone, $email, $senha)) {
-                            echo "Cadastrado com sucesso! Acesse para entrar!";
+                            ?>
+
+                            <div id="msg-sucesso">
+                            Cadastrado com sucesso! Acesse para entrar!
+                            </div>
+
+                            <?php
+
                         } else {
-                            echo "Email já cadastrado";
+                            ?>
+                            
+                            <div class="msg-erro">
+                            Email já cadastrado
+                            </div>
+                            
+                            <?php
                         }
 
                     } else {
-                        echo "Senha não correspodem!";
+                        ?>
+
+                        <div class="msg-erro">
+                        Senha não correspodem!
+                        </div>
+                        
+                        <?php
                     }
 
                 } else {
-                    echo "Erro: " .$u->msgErro;
+                    ?>
+
+                    <div class="msg-erro">
+                        <?php echo "Erro: " .$u->msgErro ?>
+                    </div>
+
+                    <?php
                 }
 
             } else {
-                echo "Preencha todos os campos!";
+                ?>
+
+                <div class="msg-erro">
+                    Preencha todos os campos! 
+                </div>
+
+                <?php
             }
         }
 

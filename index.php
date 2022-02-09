@@ -1,3 +1,9 @@
+
+<?php
+    require_once "class/usuario.php";
+    $u = new Usuario;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,6 +28,34 @@
     </section>
 
     <?php
+
+    if (isset($_POST["email"])) {
+
+        $email = addslashes($_POST["email"]);
+        $senha = addslashes($_POST["senha"]);
+
+        if (!empty($email) && !empty($senha)) {
+
+            $u->conectar("projeto_login", "localhost", "root", "novasenha");
+
+            if ($u->msgErro == "") {
+
+            if ($u->logar($email, $senha)) {
+
+               header("location: site.php"); 
+            } else {
+                echo "Email ou senha incorretos!";
+            }
+
+        } else {
+            echo "Erro: " .$u->msgErro;
+        }
+
+        } else {
+            echo "Preencha todos os campos!";
+        }
+    
+    }
 
     ?>
     

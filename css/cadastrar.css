@@ -40,3 +40,19 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* div#msg-sucesso {
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #99ff96;
+    border: 1px solid #000;
+}
+
+div.msg-erro {
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #ec6767;
+    border: 1px solid #000;
+} */
